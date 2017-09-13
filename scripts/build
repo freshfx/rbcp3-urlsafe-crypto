@@ -2,6 +2,5 @@
 
 npm run clean
 npm run prepare
-npm run copy
 npm run docs
 npm run scripts

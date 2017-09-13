@@ -7,8 +7,6 @@
   "scripts": {
     "build": "bash scripts/build",
     "clean": "rm -rf dist",
-    "copy": "bash scripts/copy",
-    "copy:watch": "onchange 'package.json' -v -- npm run copy",
     "docs:jsdoc": "jsdoc src/index.js -d dist/docs",
     "docs": "jsdoc2md src/index.js > README.md",
     "docs:watch": "onchange 'src/**/*.js' 'conf.json' -v -- npm run docs",
