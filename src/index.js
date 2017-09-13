@@ -22,6 +22,9 @@ import {encode, encodeP, decode, decodeP} from './lib/base64-urlsafe'
  *  4. inflate
  *  5. parse data (optional)
  *
+ * ## Installation
+ * `npm install --save git:git@github.com:freshfx/rbcp3-urlsafe-crypto.git#v1.0.0`
+ *
  * @module urlsafe-crypto
  */
 

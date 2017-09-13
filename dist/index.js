@@ -36,6 +36,9 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  *  4. inflate
  *  5. parse data (optional)
  *
+ * ## Installation
+ * `npm install --save git:git@github.com:freshfx/rbcp3-urlsafe-crypto.git#v1.0.0`
+ *
  * @module urlsafe-crypto
  */
 

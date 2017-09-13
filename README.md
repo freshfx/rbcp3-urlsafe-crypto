@@ -17,6 +17,9 @@ Decryption Process:
  4. inflate
  5. parse data (optional)
 
+## Installation
+`npm install --save git:git@github.com:freshfx/rbcp3-urlsafe-crypto.git#v1.0.0`
+
 
 * [urlsafe-crypto](#module_urlsafe-crypto)
     * [module.exports(encKey, isString)](#exp_module_urlsafe-crypto--module.exports) ⇒ <code>urlsafe-crypto</code> ⏏
