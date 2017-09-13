@@ -16,7 +16,5 @@ node_modules/
 # Data
 /data/
 
-# Build
-dist/
 
 tmp

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "urlsafe aes-256-cbc encrypt/decrypt a string/object",
   "private": true,
-  "main": "dist/index.js",
+  "main": "dist/module/index.js",
   "scripts": {
     "build": "bash scripts/build",
     "clean": "rm -rf dist",
