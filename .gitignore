@@ -1,0 +1,22 @@
+# System
+.DS_Store
+
+# IDE
+.idea/
+
+# Logs
+npm-debug.log
+
+# Dependency directories
+node_modules/
+
+# Config
+.env
+
+# Data
+/data/
+
+# Build
+dist/
+
+tmp

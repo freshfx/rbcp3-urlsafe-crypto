@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+npm-run-all --parallel copy:watch docs:watch scripts:watch lint:watch test:watch scripts:watch:delete
