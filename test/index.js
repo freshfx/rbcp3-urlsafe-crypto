@@ -187,5 +187,41 @@ describe('urlsafe-crypto', () => {
         })
         .catch(done)
     })
+
+    it('should encrypt/decrypt both', done => {
+      const ENC_KEY = randomBytes(32)
+      const funcs = urlsafeCrypto.default(ENC_KEY)
+      const funcsString = urlsafeCrypto.default(ENC_KEY, true)
+      const input = {key: 'value'}
+      const inputString = 'testString'
+
+      Promise.all([
+        funcs.encrypt(input),
+        funcs.encrypt(inputString),
+        funcsString.encrypt(input),
+        funcsString.encrypt(inputString)
+      ])
+      .then(([encryptedObject, encryptedString, encryptedObject2, encryptedString2]) =>
+        Promise.all([
+          funcs.decrypt(encryptedObject2),
+          funcs.decrypt(encryptedString2, true),
+          funcsString.decrypt(encryptedObject, false),
+          funcsString.decrypt(encryptedString)
+        ])
+      )
+      .then(([decryptedObject, decryptedString, decryptedObject2, decryptedString2]) => {
+        decryptedObject.should.eql(decryptedObject2)
+        decryptedObject.should.eql(input)
+        decryptedString.should.equal(decryptedString2)
+        decryptedString.should.equal(inputString)
+
+        funcsString.decryptSync(funcs.encryptSync(input), false).should.eql(input) // eslint-disable-line no-sync
+        funcsString.decryptSync(funcs.encryptSync(inputString)).should.equal(inputString) // eslint-disable-line no-sync
+        funcs.decryptSync(funcsString.encryptSync(input)).should.eql(input) // eslint-disable-line no-sync
+        funcs.decryptSync(funcsString.encryptSync(inputString), true).should.equal(inputString) // eslint-disable-line no-sync
+        done()
+      })
+      .catch(done)
+    })
   })
 })

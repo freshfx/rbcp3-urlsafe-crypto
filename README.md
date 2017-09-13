@@ -46,7 +46,18 @@ without the need of the encryption key
 ```js
 import urlsafeCrypto from 'urlsafe-crypto'
 const ENC_KEY = 'b6bad4846614652e7ead69df7337a7f4'
-const {encrypt, decrypt} = urlsafeCrypto(ENC_KEY)
+const crypto = urlsafeCrypto(ENC_KEY)
+
+// prints the object
+crypto.encrypt({an: 'object'}).then(crypto.decrypt).then(console.log)
+// prints 'test', important: add the isString option to the decrypt function
+crypto.encrypt('test').then(encryptedString => crypto.decrypt(encryptedString, true)).then(console.log)
+
+const cryptoString = urlsafeCrypto(ENC_KEY, true)
+// prints 'test'
+cryptoString.encrypt('test').then(crypto.decrypt).then(console.log)
+// prints the object, important: add the isString option to decrypt function
+cryptoString.encrypt({an: 'object'}).then(encryptedObject => cryptoString.decrypt(encryptedObject, false)).then(console.log)
 ```
 <a name="module_urlsafe-crypto--module.exports.encrypt"></a>
 
