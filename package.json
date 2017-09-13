@@ -3,25 +3,26 @@
   "version": "1.0.0",
   "description": "urlsafe aes-256-cbc encrypt/decrypt a string/object",
   "private": true,
-  "main": "src/index.js",
+  "main": "dist/module/index.js",
   "scripts": {
     "build": "bash scripts/build",
     "clean": "rm -rf dist",
     "copy": "bash scripts/copy",
     "copy:watch": "onchange 'package.json' -v -- npm run copy",
-    "docs:jsdoc": "jsdoc src/index.js -d dist/docs/",
+    "docs:jsdoc": "jsdoc src/index.js -d dist/docs",
     "docs": "jsdoc2md src/index.js > README.md",
     "docs:watch": "onchange 'src/**/*.js' 'conf.json' -v -- npm run docs",
     "lint": "eslint -c .eslintrc.yml src/ test/",
     "lint:watch": "onchange 'src/**/*.js' 'test/**/*.js' -v -- npm run lint",
     "prepare": "bash scripts/prepare",
-    "scripts": "babel src/ -d dist/module --copy-files",
-    "scripts:watch": "babel src/ --watch -d dist/module -s true --copy-files",
+    "scripts": "babel src/ -d dist/ --copy-files",
+    "scripts:watch": "babel src/ --watch -d dist/ -s true --copy-files",
     "scripts:watch:delete": "onchange \"src/**/*.*\" -- scripts/remove-on-unlink '{{event}} {{changed}}'",
     "start": "bash scripts/start",
     "test": "NODE_ENV=test mocha",
     "test:watch": "onchange 'dist/**/*.js' 'test/**/*.js' -- npm run test",
-    "watch": "bash scripts/watch"
+    "watch": "bash scripts/watch",
+    "postinstall": "bash scripts/build"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,5 @@
     "sinon": "^3.2.1",
     "jsdoc-babel": "^0.3.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
