@@ -47,7 +47,7 @@ without the need of the encryption key
 
 **Example**  
 ```js
-import urlsafeCrypto from 'urlsafe-crypto'
+import urlsafeCrypto from 'rbcp3-urlsafe-crypto'
 const ENC_KEY = 'b6bad4846614652e7ead69df7337a7f4'
 const crypto = urlsafeCrypto(ENC_KEY)
 

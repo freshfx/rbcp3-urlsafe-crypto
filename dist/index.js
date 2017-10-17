@@ -136,7 +136,7 @@ const decryptSync = exports.decryptSync = (string, encKey, toString = false) => 
  * exports a init function which returns the specific methods
  * without the need of the encryption key
  * @example
- * import urlsafeCrypto from 'urlsafe-crypto'
+ * import urlsafeCrypto from 'rbcp3-urlsafe-crypto'
  * const ENC_KEY = 'b6bad4846614652e7ead69df7337a7f4'
  * const crypto = urlsafeCrypto(ENC_KEY)
  *
