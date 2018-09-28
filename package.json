@@ -26,8 +26,8 @@
     "url": "git+https://github.com/freshfx/rbcp3-urlsafe-crypto.git"
   },
   "engines": {
-    "npm": ">=5",
-    "node": ">=8"
+    "npm": ">=6",
+    "node": ">=10"
   },
   "keywords": [
     "crypto"
