@@ -2,11 +2,13 @@ env:
   es6: true
   node: true
   mocha: true
-extends: 'eslint:recommended'
+extends:
+  - eslint:recommended
+  - plugin:import/errors
+  - plugin:import/warnings
 parserOptions:
   sourceType: module
-  ecmaFeatures:
-    experimentalObjectRestSpread: true
+  ecmaVersion: 2018
 rules:
   accessor-pairs: error
   array-bracket-spacing: error
@@ -27,6 +29,7 @@ rules:
   capitalized-comments:
     - error
     - never
+    - ignorePattern: 'TODO|FIXME|CHANGED|XXX|IDEA|HACK|NOTE|REVIEW|NB|BUG|QUESTION|COMBAK|TEMP|HINT'
   class-methods-use-this: error
   comma-dangle: error
   comma-spacing:
@@ -64,6 +67,10 @@ rules:
   id-blacklist: error
   id-length: 'off'
   id-match: error
+  import/order:
+    - error
+    - newlines-between: always
+  import/namespace: off
   indent: 'off'
   init-declarations: error
   jsx-quotes: error
@@ -180,7 +187,22 @@ rules:
   no-useless-return: error
   no-var: error
   no-void: error
-  no-warning-comments: error
+  no-warning-comments:
+    - warn
+    - terms:
+      - todo
+      - fixme
+      - changed
+      - xxx
+      - idea
+      - hack
+      - note
+      - review
+      - nb
+      - bug
+      - question
+      - combak
+      - temp
   no-whitespace-before-property: error
   no-with: error
   nonblock-statement-body-position: error
@@ -214,10 +236,15 @@ rules:
   rest-spread-spacing:
     - error
     - never
-  semi: 'off'
+  semi:
+    - error
+    - never
   semi-spacing: error
-  sort-imports: 'off'
   sort-vars: error
+  sort-keys:
+    - error
+    - "asc"
+    - natural: false
   space-before-blocks: error
   space-before-function-paren: 'off'
   space-in-parens:

@@ -36,7 +36,7 @@ const encodeP = exports.encodeP = buffer => (0, _asPromise2.default)(() => encod
  * @param {String} string - the string to decode
  * @returns {Buffer} the decoded buffer
  */
-const decode = exports.decode = string => new Buffer((string + '==='.slice((string.length + 3) % 4)).replace(/\-/g, '+') // eslint-disable-line no-useless-escape
+const decode = exports.decode = string => Buffer.from((string + '==='.slice((string.length + 3) % 4)).replace(/\-/g, '+') // eslint-disable-line no-useless-escape
 .replace(/_/g, '/'), 'base64');
 
 /**
@@ -59,9 +59,9 @@ const decodeP = exports.decodeP = string => (0, _asPromise2.default)(() => decod
  * @return {base64-urlsafe} base64-urlsafe functions
  */
 exports.default = {
-  encode,
-  encodeP,
   decode,
-  decodeP
+  decodeP,
+  encode,
+  encodeP
 };
 //# sourceMappingURL=base64-urlsafe.js.map

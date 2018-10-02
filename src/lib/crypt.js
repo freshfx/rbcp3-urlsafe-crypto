@@ -10,7 +10,7 @@ import asPromise from './as-promise'
 
 // must be 256 Bit (32 characters)
 const ENC_ALG = 'aes-256-cbc'
-const IV_LENGTH = 16;
+const IV_LENGTH = 16
 
 
 /**
@@ -49,7 +49,7 @@ export const encryptP = (buffer, encKey) => asPromise(() => encrypt(buffer, encK
 export const decrypt = (buffer, encKey) => {
   const [iv, encrypted] = buffer.toString()
     .split(':')
-    .map(d => new Buffer(d, 'hex'))
+    .map(d => Buffer.from(d, 'hex'))
   const deciper = createDecipheriv(ENC_ALG, encKey, iv)
   return Buffer.concat([
     deciper.update(encrypted),

@@ -1,6 +1,6 @@
 {
   "name": "rbcp3-urlsafe-crypto",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "urlsafe aes-256-cbc encrypt/decrypt a string/object",
   "private": true,
   "main": "dist/index.js",
@@ -9,16 +9,16 @@
     "clean": "rm -rf dist",
     "docs:jsdoc": "jsdoc src/index.js -d dist/docs",
     "docs": "jsdoc2md src/index.js > README.md",
-    "docs:watch": "onchange 'src/**/*.js' 'conf.json' -v -- npm run docs",
+    "docs:watch": "onchange -k -t 500 'src/**/*.js' 'conf.json' -v -- npm run docs",
     "lint": "eslint -c .eslintrc.yml src/ test/",
-    "lint:watch": "onchange 'src/**/*.js' 'test/**/*.js' -v -- npm run lint",
+    "lint:watch": "onchange -k -t 200 'src/**/*.js' 'test/**/*.js' -v -- npm run lint",
     "prepare": "bash scripts/prepare",
     "scripts": "babel src/ -d dist/ --copy-files",
     "scripts:watch": "babel src/ --watch -d dist/ -s true --copy-files",
-    "scripts:watch:delete": "onchange \"src/**/*.*\" -- scripts/remove-on-unlink '{{event}} {{changed}}'",
+    "scripts:watch:delete": "onchange -k -t 200 \"src/**/*.*\" -- scripts/remove-on-unlink '{{event}} {{changed}}'",
     "start": "bash scripts/start",
     "test": "NODE_ENV=test mocha",
-    "test:watch": "onchange 'dist/**/*.js' 'test/**/*.js' -- npm run test",
+    "test:watch": "onchange -k -t 200 'dist/**/*.js' 'test/**/*.js' -- npm run test",
     "watch": "bash scripts/watch"
   },
   "repository": {
@@ -44,15 +44,17 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "deep-freeze": "0.0.1",
-    "eslint": "^4.9.0",
+    "eslint": "^5.6.1",
+    "eslint-plugin-import": "^2.14.0",
     "jsdoc": "^3.5.5",
-    "jsdoc-babel": "^0.3.0",
-    "mocha": "^4.0.1",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^4.0.1",
+    "mocha": "^5.2.0",
     "npm-run-all": "^4.1.1",
-    "onchange": "^3.2.1",
+    "onchange": "^5.0.2",
     "should": "^13.1.2",
     "should-sinon": "0.0.6",
-    "sinon": "^4.0.1"
+    "sinon": "^6.3.4"
   },
   "dependencies": {}
 }

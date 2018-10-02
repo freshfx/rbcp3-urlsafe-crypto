@@ -48,8 +48,8 @@ export const parseP = data => asPromise(() => parse(data))
  * @return {json} json
  */
 export default {
-  stringify,
-  stringifyP,
   parse,
-  parseP
+  parseP,
+  stringify,
+  stringifyP
 }

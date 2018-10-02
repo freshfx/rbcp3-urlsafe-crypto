@@ -37,7 +37,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  *  5. parse data (optional)
  *
  * ## Installation
- * `npm install --save git:git@github.com:freshfx/rbcp3-urlsafe-crypto.git#v1.0.0`
+ * `npm install --save git+https:github.com/freshfx/rbcp3-urlsafe-crypto.git#v1.0.1`
  *
  * @module urlsafe-crypto
  */
@@ -52,13 +52,16 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * @param  {String} encKey Encryption Key, length must be 32 (256 Bit)
  * @return {Promise} Promise which resolves with the resulting String
  */
-const encrypt = exports.encrypt = (data, encKey) => {
-  let p = Promise.resolve(data);
+const encrypt = exports.encrypt = async (data, encKey) => {
   if (typeof data === 'object') {
-    p = p.then(data => (0, _json.stringifyP)(data));
+    data = await (0, _json.stringifyP)(data);
   }
 
-  return p.then(data => (0, _zlib2.deflate)(data, { level: _zlib.Z_BEST_COMPRESSION })).then(data => crypt.encryptP(data, encKey)).then(data => (0, _zlib2.deflate)(data, { level: _zlib.Z_BEST_COMPRESSION })).then(_base64Urlsafe.encodeP);
+  const deflatedData = await (0, _zlib2.deflate)(data, { level: _zlib.Z_BEST_COMPRESSION });
+  const encryptedDeflatedData = await crypt.encryptP(deflatedData, encKey);
+  const deflatedEncryptedDeflatedData = await (0, _zlib2.deflate)(encryptedDeflatedData, { level: _zlib.Z_BEST_COMPRESSION });
+  const encodedDeflatedEncryptedDeflatedData = await (0, _base64Urlsafe.encodeP)(deflatedEncryptedDeflatedData);
+  return encodedDeflatedEncryptedDeflatedData;
 };
 
 /**
@@ -94,12 +97,16 @@ const encryptSync = exports.encryptSync = (data, encKey) => {
  * @param {Boolean} toString=false indicates if the result should be converted into a string or object
  * @return {String|Object} the resulting string/object
  */
-const decrypt = exports.decrypt = (string, encKey, toString = false) => {
-  const p = (0, _base64Urlsafe.decodeP)(string).then(_zlib2.inflate).then(data => crypt.decryptP(data, encKey)).then(_zlib2.inflate).then(data => Promise.resolve(data.toString()));
+const decrypt = exports.decrypt = async (string, encKey, toString = false) => {
+  const deflatedEncryptedDeflatedData = await (0, _base64Urlsafe.decodeP)(string);
+  const encryptedDeflatedData = await (0, _zlib2.inflate)(deflatedEncryptedDeflatedData);
+  const deflatedData = await crypt.decryptP(encryptedDeflatedData, encKey);
+  const data = (await (0, _zlib2.inflate)(deflatedData)).toString();
+
   if (toString === true) {
-    return p;
+    return data;
   }
-  return p.then(_json.parseP);
+  return (0, _json.parseP)(data);
 };
 
 /**
@@ -170,10 +177,10 @@ exports.default = (encKey, isString = false) => {
     throw new Error(`invalid encryption key length (is: ${encKey.length} bytes, should be: 32 bytes)`);
   }
   return {
-    encrypt: data => encrypt(data, encKey),
-    encryptSync: data => encryptSync(data, encKey),
     decrypt: (data, isString = defaultIsString) => decrypt(data, encKey, isString),
-    decryptSync: (data, isString = defaultIsString) => decryptSync(data, encKey, isString)
+    decryptSync: (data, isString = defaultIsString) => decryptSync(data, encKey, isString),
+    encrypt: data => encrypt(data, encKey),
+    encryptSync: data => encryptSync(data, encKey)
   };
 };
 //# sourceMappingURL=index.js.map

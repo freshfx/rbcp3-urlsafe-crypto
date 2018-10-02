@@ -1,6 +1,8 @@
-import should from 'should'
-import * as crypt from '../../src/lib/crypt'
 import crypto from 'crypto'
+
+import should from 'should'
+
+import * as crypt from '../../src/lib/crypt'
 
 export default () =>
   describe('crypt', () => {

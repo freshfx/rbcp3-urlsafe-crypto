@@ -57,9 +57,9 @@ const parseP = exports.parseP = data => (0, _asPromise2.default)(() => parse(dat
  * @return {json} json
  */
 exports.default = {
-  stringify,
-  stringifyP,
   parse,
-  parseP
+  parseP,
+  stringify,
+  stringifyP
 };
 //# sourceMappingURL=json.js.map

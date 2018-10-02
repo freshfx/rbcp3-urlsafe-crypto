@@ -38,17 +38,16 @@ import {encode, encodeP, decode, decodeP} from './lib/base64-urlsafe'
  * @param  {String} encKey Encryption Key, length must be 32 (256 Bit)
  * @return {Promise} Promise which resolves with the resulting String
  */
-export const encrypt = (data, encKey) => {
-  let p = Promise.resolve(data)
+export const encrypt = async (data, encKey) => {
   if (typeof data === 'object') {
-    p = p.then(data => stringifyP(data))
+    data = await stringifyP(data)
   }
 
-  return p
-    .then(data => deflate(data, {level: Z_BEST_COMPRESSION}))
-    .then(data => crypt.encryptP(data, encKey))
-    .then(data => deflate(data, {level: Z_BEST_COMPRESSION}))
-    .then(encodeP)
+  const deflatedData = await deflate(data, {level: Z_BEST_COMPRESSION})
+  const encryptedDeflatedData = await crypt.encryptP(deflatedData, encKey)
+  const deflatedEncryptedDeflatedData = await deflate(encryptedDeflatedData, {level: Z_BEST_COMPRESSION})
+  const encodedDeflatedEncryptedDeflatedData = await encodeP(deflatedEncryptedDeflatedData)
+  return encodedDeflatedEncryptedDeflatedData
 }
 
 /**
@@ -89,16 +88,16 @@ export const encryptSync = (data, encKey) => {
  * @param {Boolean} toString=false indicates if the result should be converted into a string or object
  * @return {String|Object} the resulting string/object
  */
-export const decrypt = (string, encKey, toString = false) => {
-  const p = decodeP(string)
-    .then(inflate)
-    .then(data => crypt.decryptP(data, encKey))
-    .then(inflate)
-    .then(data => Promise.resolve(data.toString()))
+export const decrypt = async (string, encKey, toString = false) => {
+  const deflatedEncryptedDeflatedData = await decodeP(string)
+  const encryptedDeflatedData = await inflate(deflatedEncryptedDeflatedData)
+  const deflatedData = await crypt.decryptP(encryptedDeflatedData, encKey)
+  const data = (await inflate(deflatedData)).toString()
+
   if (toString === true) {
-    return p
+    return data
   }
-  return p.then(parseP)
+  return parseP(data)
 }
 
 /**
@@ -175,9 +174,9 @@ export default (encKey, isString = false) => {
     throw new Error(`invalid encryption key length (is: ${encKey.length} bytes, should be: 32 bytes)`)
   }
   return {
-    encrypt: data => encrypt(data, encKey),
-    encryptSync: data => encryptSync(data, encKey),
     decrypt: (data, isString = defaultIsString) => decrypt(data, encKey, isString),
-    decryptSync: (data, isString = defaultIsString) => decryptSync(data, encKey, isString)
+    decryptSync: (data, isString = defaultIsString) => decryptSync(data, encKey, isString),
+    encrypt: data => encrypt(data, encKey),
+    encryptSync: data => encryptSync(data, encKey)
   }
 }

@@ -50,7 +50,7 @@ const encryptP = exports.encryptP = (buffer, encKey) => (0, _asPromise2.default)
  * @returns {Promise} Promise resolving with the decrypted data as Buffer
  */
 const decrypt = exports.decrypt = (buffer, encKey) => {
-  const [iv, encrypted] = buffer.toString().split(':').map(d => new Buffer(d, 'hex'));
+  const [iv, encrypted] = buffer.toString().split(':').map(d => Buffer.from(d, 'hex'));
   const deciper = (0, _crypto.createDecipheriv)(ENC_ALG, encKey, iv);
   return Buffer.concat([deciper.update(encrypted), deciper.final()]);
 };

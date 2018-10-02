@@ -1,5 +1,6 @@
 import should from 'should'
 import sinon from 'sinon'
+
 import * as json from '../../src/lib/json'
 
 require('should-sinon')

@@ -18,7 +18,7 @@ Decryption Process:
  5. parse data (optional)
 
 ## Installation
-`npm install --save git:git@github.com:freshfx/rbcp3-urlsafe-crypto.git#v1.0.0`
+`npm install --save git+https:github.com/freshfx/rbcp3-urlsafe-crypto.git#v1.0.1`
 
 
 * [urlsafe-crypto](#module_urlsafe-crypto)

@@ -163,13 +163,13 @@ describe('urlsafe-crypto', () => {
     it('should encrypt/decrypt objects', done => {
       const funcs = urlsafeCrypto.default(randomBytes(32))
       const input = {
-        key: 'value',
-        an: 'object',
-        with: 'some',
-        properties: 'or',
         a: {
           nested: 'one'
-        }
+        },
+        an: 'object',
+        key: 'value',
+        properties: 'or',
+        with: 'some'
       }
       funcs
         .encrypt(input)

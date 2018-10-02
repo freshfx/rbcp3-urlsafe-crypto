@@ -1,6 +1,6 @@
-import should from 'should'
+import should from 'should' // eslint-disable-line import/order
 require('should-sinon')
-import origZlib from 'zlib'
+import origZlib from 'zlib' // eslint-disable-line import/order
 
 import * as zlib from '../../src/lib/zlib'
 
@@ -14,7 +14,7 @@ export default () =>
       })
 
       it('should return a Promise', () => {
-        zlib.deflate().should.be.an.instanceOf(Promise)
+        zlib.deflate(Buffer.from('')).should.be.an.instanceOf(Promise)
       })
 
       it('should deflate something', done => {
@@ -35,7 +35,7 @@ export default () =>
       })
 
       it('should return a Promise', () => {
-        zlib.inflate().should.be.an.instanceOf(Promise)
+        zlib.inflate(Buffer.from([0x78, 0x9c, 0x03, 0x00, 0x00, 0x00, 0x00, 0x01])).should.be.an.instanceOf(Promise)
       })
 
       it('should inflate something', done => {

@@ -31,7 +31,7 @@ export const encodeP = buffer => asPromise(() => encode(buffer))
  * @param {String} string - the string to decode
  * @returns {Buffer} the decoded buffer
  */
-export const decode = string => new Buffer(
+export const decode = string => Buffer.from(
   (string + '==='.slice((string.length + 3) % 4))
     .replace(/\-/g, '+') // eslint-disable-line no-useless-escape
     .replace(/_/g, '/')
@@ -60,8 +60,8 @@ export const decodeP = string => asPromise(() => decode(string))
  * @return {base64-urlsafe} base64-urlsafe functions
  */
 export default {
-  encode,
-  encodeP,
   decode,
-  decodeP
+  decodeP,
+  encode,
+  encodeP
 }
