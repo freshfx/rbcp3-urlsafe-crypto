@@ -1,43 +1,33 @@
-## <small>0.0.7 (2018-10-10)</small>
+## 2.0.0 (2018-10-11)
 
-* chore: cleanup ([266bde1](https://github.com/freshfx/module-boilerplate/commit/266bde1))
-
-
-
-## <small>0.0.6 (2018-10-09)</small>
-
-* chore: release v0.0.6 ([ba6a555](https://github.com/freshfx/module-boilerplate/commit/ba6a555))
-* build(release-it): changed changelog command ([0688374](https://github.com/freshfx/module-boilerplate/commit/0688374))
+* feat: migrated to module-boilerplate ([651420b](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/651420b))
 
 
 
-## <small>0.0.5 (2018-10-09)</small>
+## 1.1.0 (2018-10-02)
 
-* chore: release v0.0.5 ([1087424](https://github.com/freshfx/module-boilerplate/commit/1087424))
-* build(release-it): changelog test ([56d3014](https://github.com/freshfx/module-boilerplate/commit/56d3014))
-
-
-
-## <small>0.0.4 (2018-10-09)</small>
-
-* chore: release v0.0.4 ([a774a9d](https://github.com/freshfx/module-boilerplate/commit/a774a9d))
+* refactor: updated deps, changed to async await ([60e4d5e](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/60e4d5e))
+* feat: updated node to v10, fixed test ([68ef679](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/68ef679))
+* chore: upate jsdoc deps ([7e605ca](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/7e605ca))
+* docs: changed install url from ssh to https ([2546091](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/2546091))
 
 
 
-## <small>0.0.4-beta.0 (2018-10-09)</small>
+## <small>1.0.1 (2017-10-17)</small>
 
-* chore: release v0.0.4-beta.0 ([68120cd](https://github.com/freshfx/module-boilerplate/commit/68120cd))
-* build(package.json): added release script ([4cbacaf](https://github.com/freshfx/module-boilerplate/commit/4cbacaf))
-* build(release-it): remove default configs ([2433158](https://github.com/freshfx/module-boilerplate/commit/2433158))
-* build(release-it): set npm publish to false ([2df2583](https://github.com/freshfx/module-boilerplate/commit/2df2583))
+* chore(package.json): updated dependencies ([b58b19e](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/b58b19e))
+* docs: updated import statement ([e925afa](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/e925afa))
 
 
 
-## <small>0.0.3 (2018-10-09)</small>
+## 1.0.0 (2017-09-13)
 
-* chore: added release-it ([504741d](https://github.com/freshfx/module-boilerplate/commit/504741d))
-* chore: init ([ee332d4](https://github.com/freshfx/module-boilerplate/commit/ee332d4))
-* chore: release v0.0.3 ([63a858f](https://github.com/freshfx/module-boilerplate/commit/63a858f))
+* docs: added installation instructions ([076e656](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/076e656))
+* fix: fixed main script, added preinstall hook to run build ([694fc42](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/694fc42))
+* fix: removed package.json from dist directory, removed copy script ([0c6e27c](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/0c6e27c))
+* chore: added dist dir ([c94158b](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c94158b))
+* refactor: updated example, added missing tests ([e95b6ff](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/e95b6ff))
+* feat: initialized repo, added code/tests etc. ([74ba520](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/74ba520))
 
 
 
