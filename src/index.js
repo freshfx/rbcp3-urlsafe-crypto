@@ -25,6 +25,12 @@ import {encode, encodeP, decode, decodeP} from './lib/base64-urlsafe'
  * ## Installation
  * `npm install --save @freshfx/urlsafe-crypto`
  *
+ * **Attention:** in order to install this package, either be a permitted user for this package, or create
+ * a `.npmrc` in your projects root with following content (and set the NPM_TOKEN environment variable):
+ * ```txt
+ *  //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+ * ```
+ *
  * ## Why should I use this?
  * and not f.e. (iron)[https://www.npmjs.com/package/iron]?
  * 1. we don't need integrity (yet)
