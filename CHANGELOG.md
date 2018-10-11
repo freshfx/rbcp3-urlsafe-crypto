@@ -1,5 +1,12 @@
+## <small>2.0.1 (2018-10-11)</small>
+
+* fix(package.json): removed private flag for npm publish ([a32d188](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/a32d188))
+
+
+
 ## 2.0.0 (2018-10-11)
 
+* chore: release v2.0.0 ([349486e](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/349486e))
 * feat: migrated to module-boilerplate ([651420b](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/651420b))
 
 
