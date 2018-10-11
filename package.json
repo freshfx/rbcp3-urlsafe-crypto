@@ -1,6 +1,6 @@
 {
   "name": "@freshfx/urlsafe-crypto",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "urlsafe aes-256-cbc encrypt/decrypt a string/object",
   "main": "dist/index.js",
   "scripts": {

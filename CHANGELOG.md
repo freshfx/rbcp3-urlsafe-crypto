@@ -1,5 +1,12 @@
+## <small>2.0.2 (2018-10-11)</small>
+
+* docs(installation): added npm info ([5d5d1b0](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/5d5d1b0))
+
+
+
 ## <small>2.0.1 (2018-10-11)</small>
 
+* chore: release v2.0.1 ([748d345](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/748d345))
 * fix(package.json): removed private flag for npm publish ([a32d188](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/a32d188))
 
 
