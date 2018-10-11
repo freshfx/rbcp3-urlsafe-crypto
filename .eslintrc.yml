@@ -30,7 +30,12 @@ rules:
     - error
     - never
     - ignorePattern: 'TODO|FIXME|CHANGED|XXX|IDEA|HACK|NOTE|REVIEW|NB|BUG|QUESTION|COMBAK|TEMP|HINT'
-  class-methods-use-this: error
+  class-methods-use-this:
+    - error
+    - exceptMethods:
+      - tableName
+      - hasTimestamps
+      - softDelete
   comma-dangle: error
   comma-spacing:
     - error

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-npm run clean
-npm run prepare
-npm run docs
-npm run scripts

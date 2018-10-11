@@ -1,6 +1,6 @@
-<a name="module_urlsafe-crypto"></a>
+<a name="module_@freshfx/urlsafe-crypto"></a>
 
-## urlsafe-crypto
+## @freshfx/urlsafe-crypto
 encrypts, encodes and deflates a given object/string
 
 Encryption Process:
@@ -18,20 +18,25 @@ Decryption Process:
  5. parse data (optional)
 
 ## Installation
-`npm install --save git+https:github.com/freshfx/rbcp3-urlsafe-crypto.git#v1.0.1`
+`npm install --save @freshfx/urlsafe-crypto`
+
+## Why should I use this?
+and not f.e. (iron)[https://www.npmjs.com/package/iron]?
+1. we don't need integrity (yet)
+2. the generated string is shorter (30-50%) - good for URLs since the GET url length can be limited
 
 
-* [urlsafe-crypto](#module_urlsafe-crypto)
-    * [module.exports(encKey, isString)](#exp_module_urlsafe-crypto--module.exports) ⇒ <code>urlsafe-crypto</code> ⏏
+* [@freshfx/urlsafe-crypto](#module_@freshfx/urlsafe-crypto)
+    * [module.exports(encKey, isString)](#exp_module_@freshfx/urlsafe-crypto--module.exports) ⇒ <code>urlsafe-crypto</code> ⏏
         * _static_
-            * [.encrypt](#module_urlsafe-crypto--module.exports.encrypt) ⇒ <code>Promise</code>
-            * [.encryptSync](#module_urlsafe-crypto--module.exports.encryptSync) ⇒ <code>String</code>
-            * [.decrypt](#module_urlsafe-crypto--module.exports.decrypt) ⇒ <code>String</code> \| <code>Object</code>
-            * [.decryptSync](#module_urlsafe-crypto--module.exports.decryptSync) ⇒ <code>String</code> \| <code>Object</code>
+            * [.encrypt](#module_@freshfx/urlsafe-crypto--module.exports.encrypt) ⇒ <code>Promise</code>
+            * [.encryptSync](#module_@freshfx/urlsafe-crypto--module.exports.encryptSync) ⇒ <code>String</code>
+            * [.decrypt](#module_@freshfx/urlsafe-crypto--module.exports.decrypt) ⇒ <code>String</code> \| <code>Object</code>
+            * [.decryptSync](#module_@freshfx/urlsafe-crypto--module.exports.decryptSync) ⇒ <code>String</code> \| <code>Object</code>
         * _inner_
-            * [~urlsafe-crypto](#module_urlsafe-crypto--module.exports..urlsafe-crypto) : <code>Object</code>
+            * [~urlsafe-crypto](#module_@freshfx/urlsafe-crypto--module.exports..urlsafe-crypto) : <code>Object</code>
 
-<a name="exp_module_urlsafe-crypto--module.exports"></a>
+<a name="exp_module_@freshfx/urlsafe-crypto--module.exports"></a>
 
 ### module.exports(encKey, isString) ⇒ <code>urlsafe-crypto</code> ⏏
 exports a init function which returns the specific methods
@@ -62,12 +67,12 @@ cryptoString.encrypt('test').then(crypto.decrypt).then(console.log)
 // prints the object, important: add the isString option to decrypt function
 cryptoString.encrypt({an: 'object'}).then(encryptedObject => cryptoString.decrypt(encryptedObject, false)).then(console.log)
 ```
-<a name="module_urlsafe-crypto--module.exports.encrypt"></a>
+<a name="module_@freshfx/urlsafe-crypto--module.exports.encrypt"></a>
 
 #### module.exports.encrypt ⇒ <code>Promise</code>
 encrypts and encodes a given object or string
 
-**Kind**: static constant of [<code>module.exports</code>](#exp_module_urlsafe-crypto--module.exports)  
+**Kind**: static constant of [<code>module.exports</code>](#exp_module_@freshfx/urlsafe-crypto--module.exports)  
 **Returns**: <code>Promise</code> - Promise which resolves with the resulting String  
 
 | Param | Type | Description |
@@ -81,12 +86,12 @@ const ENC_KEY = '6b7beea8ef24f7ee89e153387db8f04f'
 // should print something like 'eJwNzAcBA0EIADBLbI66YfqX8I2ACCUcg2dSRseFKzIYpAtXM_yWN9_sDVwk9lxORTkS6op3FHdJdOmqnTI1rbrJP-FnD-wDMqcaoQ'
 encrypt({key: 'value'}, ENC_KEY).then(result => console.log(result))
 ```
-<a name="module_urlsafe-crypto--module.exports.encryptSync"></a>
+<a name="module_@freshfx/urlsafe-crypto--module.exports.encryptSync"></a>
 
 #### module.exports.encryptSync ⇒ <code>String</code>
 encrypts and encodes a given object or string - synchronously
 
-**Kind**: static constant of [<code>module.exports</code>](#exp_module_urlsafe-crypto--module.exports)  
+**Kind**: static constant of [<code>module.exports</code>](#exp_module_@freshfx/urlsafe-crypto--module.exports)  
 **Returns**: <code>String</code> - the resulting string  
 
 | Param | Type | Description |
@@ -100,12 +105,12 @@ const ENC_KEY = '6b7beea8ef24f7ee89e153387db8f04f'
 // should print something like 'eJwNzAcBA0EIADBLbI66YfqX8I2ACCUcg2dSRseFKzIYpAtXM_yWN9_sDVwk9lxORTkS6op3FHdJdOmqnTI1rbrJP-FnD-wDMqcaoQ'
 console.log(encrypt({key: 'value'}, ENC_KEY))
 ```
-<a name="module_urlsafe-crypto--module.exports.decrypt"></a>
+<a name="module_@freshfx/urlsafe-crypto--module.exports.decrypt"></a>
 
 #### module.exports.decrypt ⇒ <code>String</code> \| <code>Object</code>
 decodes and decrypts a given string
 
-**Kind**: static constant of [<code>module.exports</code>](#exp_module_urlsafe-crypto--module.exports)  
+**Kind**: static constant of [<code>module.exports</code>](#exp_module_@freshfx/urlsafe-crypto--module.exports)  
 **Returns**: <code>String</code> \| <code>Object</code> - the resulting string/object  
 
 | Param | Type | Default | Description |
@@ -124,12 +129,12 @@ decrypt('eJwNzAcBA0EIADBLbI66YfqX8I2ACCUcg2dSRseFKzIYpAtXM_yWN9_sDVwk9lxORTkS6op
 // prints 'tests'
 encrypt('test', ENC_KEY).then(result => decrypt(result, ENC_KEY, true)).then(console.log)
 ```
-<a name="module_urlsafe-crypto--module.exports.decryptSync"></a>
+<a name="module_@freshfx/urlsafe-crypto--module.exports.decryptSync"></a>
 
 #### module.exports.decryptSync ⇒ <code>String</code> \| <code>Object</code>
 decodes and decrypts a given string - synchronously
 
-**Kind**: static constant of [<code>module.exports</code>](#exp_module_urlsafe-crypto--module.exports)  
+**Kind**: static constant of [<code>module.exports</code>](#exp_module_@freshfx/urlsafe-crypto--module.exports)  
 **Returns**: <code>String</code> \| <code>Object</code> - the resulting string/object  
 
 | Param | Type | Default | Description |
@@ -147,10 +152,10 @@ console.log(decrypt('eJwNzAcBA0EIADBLbI66YfqX8I2ACCUcg2dSRseFKzIYpAtXM_yWN9_sDVw
 // prints 'tests'
 console.log(decrypt(encrypt('test', ENC_KEY), ENC_KEY, true))
 ```
-<a name="module_urlsafe-crypto--module.exports..urlsafe-crypto"></a>
+<a name="module_@freshfx/urlsafe-crypto--module.exports..urlsafe-crypto"></a>
 
 #### module.exports~urlsafe-crypto : <code>Object</code>
-**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_urlsafe-crypto--module.exports)  
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_@freshfx/urlsafe-crypto--module.exports)  
 **Properties**
 
 | Name | Type |

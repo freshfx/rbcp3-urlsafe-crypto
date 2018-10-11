@@ -1,0 +1,27 @@
+{
+  "beforeChangelogCommand": "conventional-changelog -i CHANGELOG.md -s -r 0",
+  "buildCommand": "npm-run-all build test",
+  "changelogCommand": "npx conventional-changelog -u | tail -n +3",
+  "github": {
+    "release": false
+  },
+  "increment": "conventional:angular",
+  "npm": {
+    "access": "private",
+    "publish": true,
+    "tag": "latest"
+  },
+  "pkgFiles": [
+    "package.json",
+    "package-lock.json"
+  ],
+  "requireCleanWorkingDir": false,
+  "requireUpstream": true,
+  "safeBump": false,
+  "src": {
+    "beforeStartCommand": "npm run build",
+    "commitMessage": "chore: release v%s",
+    "tagAnnotation": "release %s",
+    "tagName": "v%s"
+  }
+}

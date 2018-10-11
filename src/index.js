@@ -23,9 +23,14 @@ import {encode, encodeP, decode, decodeP} from './lib/base64-urlsafe'
  *  5. parse data (optional)
  *
  * ## Installation
- * `npm install --save git+https:github.com/freshfx/rbcp3-urlsafe-crypto.git#v1.0.1`
+ * `npm install --save @freshfx/urlsafe-crypto`
  *
- * @module urlsafe-crypto
+ * ## Why should I use this?
+ * and not f.e. (iron)[https://www.npmjs.com/package/iron]?
+ * 1. we don't need integrity (yet)
+ * 2. the generated string is shorter (30-50%) - good for URLs since the GET url length can be limited
+ *
+ * @module @freshfx/urlsafe-crypto
  */
 
 /**
@@ -64,13 +69,11 @@ export const encryptSync = (data, encKey) => {
   if (typeof data === 'object') {
     data = stringify(data)
   }
-
-  return encode(
-    deflateSync(
-      crypt.encrypt(deflateSync(data), encKey),
-      {level: Z_BEST_COMPRESSION}
-    )
-  )
+  const deflatedData = deflateSync(data)
+  const encryptedDeflatedData = crypt.encrypt(deflatedData, encKey)
+  const deflatedEncryptedDeflatedData = deflateSync(encryptedDeflatedData, {level: Z_BEST_COMPRESSION})
+  const encodedDeflatedEncryptedDeflatedData = encode(deflatedEncryptedDeflatedData)
+  return encodedDeflatedEncryptedDeflatedData
 }
 
 /**
@@ -115,16 +118,15 @@ export const decrypt = async (string, encKey, toString = false) => {
  * @return {String|Object} the resulting string/object
  */
 export const decryptSync = (string, encKey, toString = false) => {
-  const decrypted = inflateSync(
-    crypt.decrypt(
-      inflateSync(decode(string)),
-      encKey
-    )
-  ).toString()
+  const deflatedEncryptedDeflatedData = decode(string)
+  const encryptedDeflatedData = inflateSync(deflatedEncryptedDeflatedData)
+  const deflatedData = crypt.decrypt(encryptedDeflatedData, encKey)
+  const data = inflateSync(deflatedData).toString()
+
   if (toString === true) {
-    return decrypted
+    return data
   }
-  return parse(decrypted)
+  return parse(data)
 }
 
 

@@ -1,25 +1,27 @@
 {
-  "name": "rbcp3-urlsafe-crypto",
+  "name": "@freshfx/urlsafe-crypto",
   "version": "1.1.0",
   "description": "urlsafe aes-256-cbc encrypt/decrypt a string/object",
   "private": true,
   "main": "dist/index.js",
   "scripts": {
-    "build": "bash scripts/build",
+    "build": "npm-run-all clean docs scripts",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
     "clean": "rm -rf dist",
-    "docs:jsdoc": "jsdoc src/index.js -d dist/docs",
     "docs": "jsdoc2md src/index.js > README.md",
-    "docs:watch": "onchange -k -t 500 'src/**/*.js' 'conf.json' -v -- npm run docs",
+    "docs:watch": "onchange -k -t 500 'src/**/*.js' -v -- npm run docs",
     "lint": "eslint -c .eslintrc.yml src/ test/",
     "lint:watch": "onchange -k -t 200 'src/**/*.js' 'test/**/*.js' -v -- npm run lint",
-    "prepare": "bash scripts/prepare",
+    "prepublish": "npm-run-all clean lint build test",
+    "test": "NODE_ENV=test mocha",
+    "release": "release-it",
     "scripts": "babel src/ -d dist/ --copy-files",
     "scripts:watch": "babel src/ --watch -d dist/ -s true --copy-files",
     "scripts:watch:delete": "onchange -k -t 200 \"src/**/*.*\" -- scripts/remove-on-unlink '{{event}} {{changed}}'",
-    "start": "bash scripts/start",
-    "test": "NODE_ENV=test mocha",
+    "prestart": "npm-run-all clean lint build test",
+    "start": "npm run watch",
     "test:watch": "onchange -k -t 200 'dist/**/*.js' 'test/**/*.js' -- npm run test",
-    "watch": "bash scripts/watch"
+    "watch": "npm-run-all --parallel docs:watch scripts:watch lint:watch test:watch scripts:watch:delete"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,9 @@
     "url": "https://github.com/freshfx/rbcp3-urlsafe-crypto/issues"
   },
   "homepage": "https://github.com/freshfx/rbcp3-urlsafe-crypto#readme",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-add-jsdoc-properties": "^0.1.4",
@@ -46,12 +51,11 @@
     "deep-freeze": "0.0.1",
     "eslint": "^5.6.1",
     "eslint-plugin-import": "^2.14.0",
-    "jsdoc": "^3.5.5",
-    "jsdoc-babel": "^0.5.0",
     "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
     "npm-run-all": "^4.1.1",
     "onchange": "^5.0.2",
+    "release-it": "^7.6.1",
     "should": "^13.1.2",
     "should-sinon": "0.0.6",
     "sinon": "^6.3.4"
