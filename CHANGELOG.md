@@ -1,5 +1,12 @@
+## <small>2.0.3 (2018-11-27)</small>
+
+* chore(package.json): updated dev deps ([cb29676](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/cb29676))
+
+
+
 ## <small>2.0.2 (2018-10-11)</small>
 
+* chore: release v2.0.2 ([4c9d4ef](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/4c9d4ef))
 * docs(installation): added npm info ([5d5d1b0](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/5d5d1b0))
 
 
