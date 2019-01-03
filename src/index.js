@@ -1,4 +1,4 @@
-import {Z_BEST_COMPRESSION} from 'zlib'
+import {Z_BEST_SPEED} from 'zlib'
 
 import * as crypt from './lib/crypt'
 import {parse, parseP, stringify, stringifyP} from './lib/json'
@@ -54,9 +54,9 @@ export const encrypt = async (data, encKey) => {
     data = await stringifyP(data)
   }
 
-  const deflatedData = await deflate(data, {level: Z_BEST_COMPRESSION})
+  const deflatedData = await deflate(data, {level: Z_BEST_SPEED})
   const encryptedDeflatedData = await crypt.encryptP(deflatedData, encKey)
-  const deflatedEncryptedDeflatedData = await deflate(encryptedDeflatedData, {level: Z_BEST_COMPRESSION})
+  const deflatedEncryptedDeflatedData = await deflate(encryptedDeflatedData, {level: Z_BEST_SPEED})
   const encodedDeflatedEncryptedDeflatedData = await encodeP(deflatedEncryptedDeflatedData)
   return encodedDeflatedEncryptedDeflatedData
 }
@@ -77,7 +77,7 @@ export const encryptSync = (data, encKey) => {
   }
   const deflatedData = deflateSync(data)
   const encryptedDeflatedData = crypt.encrypt(deflatedData, encKey)
-  const deflatedEncryptedDeflatedData = deflateSync(encryptedDeflatedData, {level: Z_BEST_COMPRESSION})
+  const deflatedEncryptedDeflatedData = deflateSync(encryptedDeflatedData, {level: Z_BEST_SPEED})
   const encodedDeflatedEncryptedDeflatedData = encode(deflatedEncryptedDeflatedData)
   return encodedDeflatedEncryptedDeflatedData
 }
