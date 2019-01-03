@@ -18,7 +18,7 @@ export default () =>
 
       it('should throw if an invalid encKey is given', () => {
         const doIt = (b, k) => () => crypt.encrypt(b, k)
-        doIt(Buffer.from([])).should.throw('The "key" argument must be one of type string, Buffer, TypedArray, or DataView. Received type undefined')
+        doIt(Buffer.from([])).should.throw('The "key" argument must be one of type Buffer, TypedArray, DataView, string, or KeyObject. Received type undefined')
         doIt(Buffer.from([]), 'asdf').should.throw('Invalid key length')
       })
 
