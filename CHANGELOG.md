@@ -1,5 +1,12 @@
+## 3.1.0 (2019-01-17)
+
+* chore(package.json): updated deps ([a157960](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/a157960))
+
+
+
 ## 3.0.0 (2019-01-03)
 
+* chore: release v3.0.0 ([80f34d8](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/80f34d8))
 * chore(nvm): updated to v11 ([f03bfbf](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/f03bfbf))
 * chore(package.json): updated deps ([68331d8](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/68331d8))
 * feat(crypt/zlib): changed compression to BEST_SPEED (better performance) ([281861c](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/281861c))
