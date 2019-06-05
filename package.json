@@ -13,7 +13,7 @@
     "lint:watch": "onchange -k -t 200 'src/**/*.js' 'test/**/*.js' -v -- npm run lint",
     "prepublish": "npm-run-all clean lint build test",
     "test": "NODE_ENV=test mocha",
-    "release": "release-it",
+    "release": "npx release-it",
     "scripts": "babel src/ -d dist/ --copy-files",
     "scripts:watch": "babel src/ --watch -d dist/ -s true --copy-files",
     "scripts:watch:delete": "onchange -k -t 200 \"src/**/*.*\" -- scripts/remove-on-unlink '{{event}} {{changed}}'",
@@ -43,21 +43,22 @@
     "dist"
   ],
   "devDependencies": {
+    "@release-it/conventional-changelog": "^1.1.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-add-jsdoc-properties": "^0.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "deep-freeze": "0.0.1",
-    "eslint": "^5.12.0",
-    "eslint-plugin-import": "^2.14.0",
-    "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.3",
+    "jsdoc-to-markdown": "^5.0.0",
+    "mocha": "^6.1.4",
     "npm-run-all": "^4.1.5",
-    "onchange": "^5.1.3",
-    "release-it": "^10.0.0",
-    "should": "^13.1.2",
+    "onchange": "^6.0.0",
+    "release-it": "^12.2.2",
+    "should": "^13.2.3",
     "should-sinon": "0.0.6",
-    "sinon": "^7.1.1"
+    "sinon": "^7.3.2"
   },
   "dependencies": {}
 }

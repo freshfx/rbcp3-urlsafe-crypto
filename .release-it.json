@@ -1,9 +1,7 @@
 {
   "scripts": {
-    "afterBump": "conventional-changelog -i CHANGELOG.md -s -r 0",
     "beforeStage": "npm-run-all build test",
-    "beforeStart": "npm run build",
-    "changelog": "npx conventional-changelog -u | tail -n +3"
+    "beforeStart": "npm run build"
   },
   "git": {
     "commitMessage": "chore: release v%s",
@@ -15,14 +13,15 @@
   "github": {
     "release": false
   },
-  "increment": "conventional:angular",
   "npm": {
     "access": "private",
     "publish": true,
     "tag": "latest"
   },
-  "pkgFiles": [
-    "package.json",
-    "package-lock.json"
-  ]
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
 }
