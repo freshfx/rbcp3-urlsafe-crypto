@@ -1,3 +1,5 @@
+# [4.0.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v3.1.0...v4.0.0) (2019-06-05)
+
 ## 3.1.0 (2019-01-17)
 
 * chore(package.json): updated deps ([a157960](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/a157960))
