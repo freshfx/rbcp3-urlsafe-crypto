@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "npm-run-all clean docs scripts",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
     "clean": "rm -rf dist",
     "docs": "jsdoc2md src/index.js > README.md",
     "docs:watch": "onchange -k -t 500 'src/**/*.js' -v -- npm run docs",
@@ -43,22 +42,23 @@
     "dist"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
     "@release-it/conventional-changelog": "^1.1.0",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-add-jsdoc-properties": "^0.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "deep-freeze": "0.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-import": "^2.17.3",
-    "jsdoc-to-markdown": "^5.0.0",
-    "mocha": "^6.1.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jsdoc-to-markdown": "^5.0.3",
+    "mocha": "^7.0.1",
     "npm-run-all": "^4.1.5",
-    "onchange": "^6.0.0",
-    "release-it": "^12.2.2",
+    "onchange": "^6.1.0",
+    "release-it": "^12.4.3",
     "should": "^13.2.3",
     "should-sinon": "0.0.6",
-    "sinon": "^7.3.2"
+    "sinon": "^8.1.1"
   },
   "dependencies": {}
 }

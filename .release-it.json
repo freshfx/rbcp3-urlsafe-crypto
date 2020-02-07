@@ -1,8 +1,4 @@
 {
-  "scripts": {
-    "beforeStage": "npm-run-all build test",
-    "beforeStart": "npm run build"
-  },
   "git": {
     "commitMessage": "chore: release v%s",
     "requireCleanWorkingDir": false,
@@ -23,5 +19,9 @@
       "preset": "angular",
       "infile": "CHANGELOG.md"
     }
+  },
+  "hooks": {
+    "after:bump": "npm-run-all build test",
+    "before:init": "npm run build"
   }
 }
