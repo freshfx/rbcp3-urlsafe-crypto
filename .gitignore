@@ -24,3 +24,6 @@ npm-cache/
 tmp
 .eslintcache
 *.swp
+
+coverage/
+.nyc_output

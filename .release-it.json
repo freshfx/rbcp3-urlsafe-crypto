@@ -1,22 +1,32 @@
 {
   "scripts": {
-    "beforeStage": "npm-run-all build test",
-    "beforeStart": "npm run build"
+    "changelog": "npx conventional-changelog -u | tail -n +3"
   },
   "git": {
-    "commitMessage": "chore: release v%s",
+    "commitMessage": "chore: release v${version}",
     "requireCleanWorkingDir": false,
     "requireUpstream": true,
-    "tagAnnotation": "release %s",
-    "tagName": "v%s"
+    "tagAnnotation": "release ${version}",
+    "tagName": "v${version}"
   },
   "github": {
     "release": false
   },
+  "hooks": {
+    "after:bump": "npm run changelog",
+    "before:init": "npm run build && npm run test",
+    "after:git:release": "npm run build:release",
+    "before:npm:release": "cp LICENSE CHANGELOG.md README.md package.json .npmrc ./dist && sed -i -e 's/dist\\/index.js/index.js/' ./dist/package.json",
+    "after:npm:release": "sed -i -e 's/^  \"name\": \"\\@freshfx/  \"name\": \"\\@cp/' ./dist/package.json && cd ./dist && npm publish"
+  },
   "npm": {
-    "access": "private",
     "publish": true,
-    "tag": "latest"
+    "publishPath": "./dist",
+    "tag": "latest",
+    "access": "private"
+  },
+  "publishConfig": {
+    "access": "private"
   },
   "plugins": {
     "@release-it/conventional-changelog": {

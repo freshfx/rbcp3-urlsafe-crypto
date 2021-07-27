@@ -19,7 +19,7 @@ const IV_LENGTH = 16
  * @param {String} encKey - the encription key, must be 32 characters (256 Bit) long
  * @returns {Buffer} Buffer containting the iv and the encrypted string
  */
-export const encrypt = (buffer, encKey) => {
+const encrypt = (buffer, encKey) => {
   const iv = randomBytes(IV_LENGTH)
   const cipher = createCipheriv(ENC_ALG, encKey, iv)
   const encrypted = Buffer.concat([
@@ -37,7 +37,7 @@ export const encrypt = (buffer, encKey) => {
  * @param {String} encKey - the encription key, must be 32 characters (256 Bit) long
  * @returns {Promise} Promise resolving with the encrypted data as Buffer
  */
-export const encryptP = (buffer, encKey) => asPromise(() => encrypt(buffer, encKey))
+const encryptP = (buffer, encKey) => asPromise(() => exports.encrypt(buffer, encKey))
 
 
 /**
@@ -46,7 +46,7 @@ export const encryptP = (buffer, encKey) => asPromise(() => encrypt(buffer, encK
  * @param {String} encKey - the encription key, must be 32 characters (256 Bit) long
  * @returns {Promise} Promise resolving with the decrypted data as Buffer
  */
-export const decrypt = (buffer, encKey) => {
+const decrypt = (buffer, encKey) => {
   const [iv, encrypted] = buffer.toString()
     .split(':')
     .map(d => Buffer.from(d, 'hex'))
@@ -63,7 +63,7 @@ export const decrypt = (buffer, encKey) => {
  * @param {String} encKey - the encription key, must be 32 characters (256 Bit) long
  * @returns {Promise} Promise resolving with the decrypted data as Buffer
  */
-export const decryptP = (buffer, encKey) => asPromise(() => decrypt(buffer, encKey))
+const decryptP = (buffer, encKey) => asPromise(() => exports.decrypt(buffer, encKey))
 
 /**
  * @typedef {Object} crypt
@@ -79,7 +79,7 @@ export const decryptP = (buffer, encKey) => asPromise(() => decrypt(buffer, encK
  * @param  {String} encKey - encryption key
  * @return {crypt} crypt functions
  */
-export default encKey => {
+const crypto = encKey => {
   if (!encKey) {
     throw new Error('encryption key is missing')
   }
@@ -93,9 +93,18 @@ export default encKey => {
     throw new Error(`invalid encryption key length (is: ${encKey.length} bytes, should be: 32 bytes)`)
   }
   return {
-    decrypt: buffer => decrypt(buffer, encKey),
-    decryptP: buffer => decryptP(buffer, encKey),
-    encrypt: buffer => encrypt(buffer, encKey),
-    encryptP: buffer => encryptP(buffer, encKey)
+    decrypt: buffer => exports.decrypt(buffer, encKey),
+    decryptP: buffer => exports.decryptP(buffer, encKey),
+    encrypt: buffer => exports.encrypt(buffer, encKey),
+    encryptP: buffer => exports.encryptP(buffer, encKey)
   }
 }
+
+export {
+  decrypt,
+  decryptP,
+  encrypt,
+  encryptP
+}
+
+export default crypto

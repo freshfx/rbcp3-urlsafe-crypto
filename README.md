@@ -1,6 +1,39 @@
-<a name="module_@freshfx/urlsafe-crypto"></a>
+# urlsafe-crypto
+The [FreshFx](https://www.freshfx.at/) urlsafe-crypto lib.
 
-## @freshfx/urlsafe-crypto
+## Components
+* babel (with preset-env, plugin-add-jsdoc-properties, plugin-transform-object-reset-spread)
+* eslint (with eslint-plugin-import)
+* mocha, sinon & should
+* conventional-changelog (use the angular cz style!)
+* npm-run-all, onchange, release-it
+
+## Setup
+
+1. clone this repository
+2. delete the `.git` folder
+3. change those parts:
+    * `index.js` -> adopt the module name
+    * `package.json` -> edit the corresponding values
+4. remove the .npmrc file if you don't want to use FreshFx private modules
+5. change the settings in `.release-it.json` if you want to publish to npm
+6. change the `template.hbs` file to fit your needs
+
+**Attention:** to take advantage of the private npm modules, set the NPM_TOKEN as env variable
+
+## Usage
+see [package.json's](package.json#L6) "scripts" for all available commands
+
+### commit
+`npm run commit`
+
+### start developing
+`npm start`
+
+### release
+`npm run release`
+
+## API Reference
 encrypts, encodes and deflates a given object/string
 
 Encryption Process:
@@ -171,3 +204,7 @@ console.log(decrypt(encrypt('test', ENC_KEY), ENC_KEY, true))
 | decrypt | <code>function</code> | 
 | decryptSync | <code>function</code> | 
 
+
+* * *
+
+&copy; 2021 FreshFx <npm@freshfx.at>.
