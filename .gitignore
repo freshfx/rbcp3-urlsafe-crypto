@@ -12,10 +12,10 @@ node_modules/
 
 # Config
 .env
-/src/configs/*.json
+src/configs/*.json
 
 # Data
-/data/
+data/
 
 # Build
 dist/
@@ -27,3 +27,4 @@ tmp
 
 coverage/
 .nyc_output
+
