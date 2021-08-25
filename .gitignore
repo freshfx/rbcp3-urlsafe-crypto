@@ -12,16 +12,16 @@ node_modules/
 
 # Config
 .env
-src/configs/*.json
+/src/configs/*.json
 
 # Data
-data/
+/data/
 
 # Build
-dist/
+/dist/
 npm-cache/
 
-tmp
+tmp/
 .eslintcache
 *.swp
 
