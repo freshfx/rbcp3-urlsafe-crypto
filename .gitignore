@@ -18,12 +18,13 @@ node_modules/
 /data/
 
 # Build
-dist/
+/dist/
 npm-cache/
 
-tmp
+tmp/
 .eslintcache
 *.swp
 
 coverage/
 .nyc_output
+
