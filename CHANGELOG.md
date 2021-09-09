@@ -1,7 +1,21 @@
-## [4.1.4](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v4.1.3...v4.1.4) (2021-09-09)
+# [4.2.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v4.1.4...v4.2.0) (2021-09-09)
+
+
+### Features
+
+* update .gitignore ([60ec473](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/60ec4735156c75a70b01e41a2fe84c7930d0f009))
+* update .gitignore ([c2f2155](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c2f2155d5d5da7e859041f9e7b34db24a5fc28c5))
+
+## 4.2.0 (2021-09-09)
+
+* feat: update .gitignore ([60ec473](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/60ec473))
+* feat: update .gitignore ([c2f2155](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c2f2155))
+
+
 
 ## <small>4.1.4 (2021-09-09)</small>
 
+* chore: release v4.1.4 ([dacdd2e](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/dacdd2e))
 * chore(package.json): updated deps ([b323c83](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/b323c83))
 
 
