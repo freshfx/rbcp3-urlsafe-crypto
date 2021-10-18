@@ -22,7 +22,7 @@ export default () =>
           await crypt.encrypt(Buffer.from([]))
           throw new Error('shouldn\' reach this point')
         } catch (error) {
-          error.message.should.equal('The "key" argument must be of type string or an instance of Buffer, TypedArray, DataView, or KeyObject. Received undefined')
+          error.message.should.equal('The "key" argument must be of type string or an instance of ArrayBuffer, Buffer, TypedArray, DataView, KeyObject, or CryptoKey. Received undefined')
         }
 
         try {
