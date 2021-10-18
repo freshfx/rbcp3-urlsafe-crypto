@@ -1,13 +1,28 @@
-# [4.2.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v4.1.4...v4.2.0) (2021-09-09)
+# [5.0.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v4.2.0...v5.0.0) (2021-10-18)
 
 
 ### Features
 
-* update .gitignore ([60ec473](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/60ec4735156c75a70b01e41a2fe84c7930d0f009))
-* update .gitignore ([c2f2155](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c2f2155d5d5da7e859041f9e7b34db24a5fc28c5))
+* upgaded to node v16/npm v8 ([6b983f5](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/6b983f58be632870c01cb2c7cb904cf051a1f564))
+
+
+### BREAKING CHANGES
+
+* node.js/npm upgraded
+
+## 5.0.0 (2021-10-18)
+
+* feat: upgaded to node v16/npm v8 ([6b983f5](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/6b983f5))
+
+
+### BREAKING CHANGE
+
+* node.js/npm upgraded
+
 
 ## 4.2.0 (2021-09-09)
 
+* chore: release v4.2.0 ([fbf8976](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/fbf8976))
 * feat: update .gitignore ([60ec473](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/60ec473))
 * feat: update .gitignore ([c2f2155](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c2f2155))
 
