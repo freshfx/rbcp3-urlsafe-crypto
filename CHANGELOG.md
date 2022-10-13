@@ -1,17 +1,16 @@
-# [5.0.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v4.2.0...v5.0.0) (2021-10-18)
 
 
-### Features
+# [6.0.0](https://github.com/freshfx/rbcp3-urlsafe-crypto/compare/v5.0.0...v6.0.0) (2022-10-13)
 
-* upgaded to node v16/npm v8 ([6b983f5](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/6b983f58be632870c01cb2c7cb904cf051a1f564))
+## 6.0.0 (2022-10-13)
+
+* chore: update deps ([d14f130](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/d14f130))
 
 
-### BREAKING CHANGES
-
-* node.js/npm upgraded
 
 ## 5.0.0 (2021-10-18)
 
+* chore: release v5.0.0 ([744302a](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/744302a))
 * feat: upgaded to node v16/npm v8 ([6b983f5](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/6b983f5))
 
 
@@ -125,6 +124,3 @@
 * chore: added dist dir ([c94158b](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/c94158b))
 * refactor: updated example, added missing tests ([e95b6ff](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/e95b6ff))
 * feat: initialized repo, added code/tests etc. ([74ba520](https://github.com/freshfx/rbcp3-urlsafe-crypto/commit/74ba520))
-
-
-
